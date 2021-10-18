@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visual effect</title>
+    <style>
+        .box1 {
+            height: 100vh;
+            background-color: blue;
+
+        }
+
+        .intro {
+            height: 100vh;
+            background-color: cyan;
+        }
+
+        .intro-text {
+
+            width: 30%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.5s all ease-in-out;
+        }
+
+        .intro-appear {
+            opacity: 1;
+            transform: translateY(0px);
+
+        }
+
+        .box2 {
+            height: 100vh;
+            background-color: blue;
+
+        }
+        .fromleft{
+            opacity: 0;
+            
+            transform: translateX(-20px);
+            transition: 0.7s all ease-in-out;
+        }
+        .fromleft-appear{
+            opacity: 1;
+            transform: translateX(0px);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="intro">
+        <div class="intro-title">
+            <h1>Appear Effect</h1>
+        </div>
+        <div class="intro-content">
+            <div class="intro-text">
+                <h2>Take amazing shots</h2>
+                <p>Lorem ipsum dolor sit, amet 
+                    consectetur adipisicing elit. I
+                    psa dolore, eligendi nisi quasi
+                     harum modi
+                    sint necessitatibus sequi volupta.</p>
+            </div>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="fromleft">
+        <h1>lets get started</h1>
+        <p>Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Quibusdam non deserunt assumenda maxime natus, rem
+            delectus ipsum provident </p>
+        </div>
+    </div>
+    <script>
+
+        function scrollAppear() {
+            // for intro content
+            var introText = document.querySelector('.intro-text');
+            var introPosition = introText.getBoundingClientRect().top;
+            var screenPosition = window.innerHeight / 2;
+            if (introPosition < screenPosition) {
+                introText.classList.add('intro-appear');
+            }
+
+            // for box 3
+            var boxT = document.querySelector('.fromleft');
+            var boxTPos = boxT.getBoundingClientRect().top;
+            var boxPost = window.innerHeight /2;
+            if(boxTPos < boxPost)
+            {
+                boxT.classList.add('fromleft-appear');
+            }
+
+
+
+           
+
+
+
+        }
+        window.addEventListener('scroll', scrollAppear);
+
+    </script>
+</body>
+
+</html>
